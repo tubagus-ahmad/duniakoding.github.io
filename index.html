@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tubagus Ahmad</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="preload" as="image" href="./images/backround-full.jpg">
+		<link rel="preload" as="image" href="./images/me.png">
+		<link rel="stylesheet" type="text/css" href="./css/animate.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/styles.css">
+		<script src="./js/jquery-3.6.3.min.js"></script>
+		<script src="./js/feather.min.js"></script>
+		<script src="./js/canvas-particel.js"></script>
+	</head>
+	<body>
+        <div id="particle-canvas"></div>
+		<div class="abs_full center">
+			<div class="fliper-container">
+				<div id="fliper" class="fliper">
+					<div id="card-front" class="card card-front">
+						<div class="center">
+							<svg width="0" height="0">                    
+								<defs>                         
+									<clipPath id="shaper">
+										<path id="path" d="M21.7,-26.5C27.3,-21.2,30.5,-13.6,33.2,-4.9C35.8,3.8,38.1,13.6,34.6,20.2C31,26.9,21.7,30.5,12.6,33.2C3.5,35.8,-5.4,37.6,-14.2,35.8C-23,34,-31.7,28.7,-36.9,20.8C-42,12.9,-43.6,2.5,-40.5,-5.7C-37.3,-13.9,-29.5,-19.9,-22,-24.8C-14.4,-29.7,-7.2,-33.6,0.4,-34.1C8.1,-34.6,16.1,-31.7,21.7,-26.5Z" transform="translate(50 50)" style="transition: all 0.3s ease 0s;"></path>                              
+									</clipPath> 
+								</defs>    
+							</svg>
+							<img src="./images/me.png" class="avatar clip"/>
+						</div>
+						<h2 class="center">Tubagus Ahmad</h2>
+						<p id="title" class="title center">Programmer</p>
+						<div class="space"></div>
+						<div class="space"></div>
+						<div class="social-links">
+							<div class="items">
+								<i data-feather="facebook"></i>
+							</div>
+							<div class="items">
+								<i data-feather="instagram"></i>
+							</div>
+							<div class="items">
+								<i data-feather="youtube"></i>
+							</div>
+						</div>
+						<div class="space"></div>
+						<div class="space"></div>
+						<div class="space"></div>
+						<div class="button-contact">Contact</div>
+					</div>
+					<div id="card-back" class="card card-back">
+						<h2 class="center">Info</h2>
+						<p class="intro">Hi, nama saya Tubagus Ahmad saya adalah seorang web developer, mobile developer dan server administrator.</p>
+						<div class="space"></div>
+						<div class="info-links">
+							<div class="items"><div class="item"><i id="icon" data-feather="tool"></i>Tools</div></div>
+							<div class="items"><div class="item"><i id="icon" data-feather="code"></i>Projects</div></div>
+
+							<div class="items"><div class="item"><i id="icon" data-feather="package"></i>Apps</div></div>
+							<div class="items"><div class="item"><i id="icon" data-feather="globe"></i>Blog</div></div>
+							<div class="items"><div class="item" style="margin-top: 20px;"><i id="icon" data-feather="coffee"></i>Support</div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			const path = $("#path");
+			const paths = [
+				"M21.7,-26.5C27.3,-21.2,30.5,-13.6,33.2,-4.9C35.8,3.8,38.1,13.6,34.6,20.2C31,26.9,21.7,30.5,12.6,33.2C3.5,35.8,-5.4,37.6,-14.2,35.8C-23,34,-31.7,28.7,-36.9,20.8C-42,12.9,-43.6,2.5,-40.5,-5.7C-37.3,-13.9,-29.5,-19.9,-22,-24.8C-14.4,-29.7,-7.2,-33.6,0.4,-34.1C8.1,-34.6,16.1,-31.7,21.7,-26.5Z",
+				"M25.7,-30C32.5,-25,36.5,-16.1,36.7,-7.5C36.9,1,33.4,9.1,29.1,17C24.8,24.9,19.8,32.6,12.5,36C5.3,39.3,-4.1,38.3,-13.5,35.5C-22.9,32.8,-32.2,28.4,-36.1,21.1C-40,13.8,-38.4,3.7,-36.6,-6.5C-34.8,-16.6,-32.9,-26.8,-26.8,-31.9C-20.7,-37,-10.3,-37.1,-0.4,-36.6C9.5,-36.1,19,-35,25.7,-30Z",
+				"M20.8,-24.4C28.3,-18.5,36.6,-13.2,38.9,-6C41.1,1.1,37.3,10.2,32.3,18.6C27.4,26.9,21.4,34.5,13.8,36.9C6.2,39.2,-3,36.3,-10.2,31.9C-17.4,27.6,-22.7,21.9,-27.2,15.2C-31.7,8.5,-35.4,0.8,-34.5,-6.5C-33.7,-13.7,-28.3,-20.5,-21.8,-26.7C-15.3,-32.8,-7.6,-38.3,-0.5,-37.7C6.6,-37.1,13.3,-30.4,20.8,-24.4Z",
+				"M27.1,-33.8C33.1,-27.3,34.6,-16.8,36.5,-6.4C38.4,4,40.7,14.4,36.9,21.6C33.1,28.8,23.2,32.7,13.4,35.9C3.6,39,-6.2,41.4,-14.9,39C-23.6,36.7,-31.2,29.5,-35.8,21C-40.3,12.4,-41.9,2.4,-39.4,-6.1C-36.9,-14.6,-30.4,-21.6,-23.2,-27.9C-15.9,-34.3,-8,-40,1.3,-41.5C10.5,-43.1,21.1,-40.4,27.1,-33.8Z",
+				"M21.4,-25.8C27.5,-20.4,32,-13.4,34.8,-5C37.6,3.4,38.7,13.2,34.4,19.3C30.2,25.3,20.6,27.7,11.6,30.2C2.7,32.7,-5.6,35.4,-11.7,32.9C-17.9,30.3,-21.9,22.6,-24.4,15.4C-26.9,8.2,-28,1.6,-27,-4.9C-26,-11.4,-23.1,-17.6,-18.2,-23.3C-13.4,-29,-6.7,-34.1,0.5,-34.6C7.6,-35.2,15.3,-31.3,21.4,-25.8Z",
+				"M20.8,-24.4C28.1,-18.6,36.2,-13.2,37.7,-6.3C39.3,0.5,34.5,8.8,29.6,17.1C24.8,25.4,20.1,33.7,12.5,38.1C5,42.4,-5.4,42.8,-13.4,39C-21.5,35.2,-27.2,27.1,-30.4,18.9C-33.6,10.7,-34.2,2.3,-32.3,-5.3C-30.5,-12.8,-26.3,-19.5,-20.5,-25.6C-14.7,-31.7,-7.3,-37.1,-0.3,-36.7C6.7,-36.3,13.4,-30.2,20.8,-24.4Z",
+				"M20.8,-25.6C25.7,-20.6,27.6,-12.9,29.3,-4.9C31.1,3.1,32.6,11.4,30.4,19.7C28.1,27.9,22.1,36.2,14.3,38.8C6.4,41.5,-3.3,38.7,-11.9,34.7C-20.5,30.7,-28,25.6,-33.7,18.2C-39.3,10.9,-43.2,1.3,-41.6,-7.2C-39.9,-15.7,-32.8,-23.2,-25,-27.6C-17.1,-32,-8.6,-33.4,-0.3,-33C7.9,-32.7,15.8,-30.5,20.8,-25.6Z",
+			];
+
+			feather.replace();
+			autoChangeShape();
+			changeTitleText();
+
+			var canvasDiv = document.getElementById('particle-canvas');
+			var options = {
+				particleColor: '#fff',
+				interactive: true,
+				speed: 'medium',
+				background: "./images/backround-full.jpg",
+				density: 'high'
+			};
+			var particleCanvas = new ParticleNetwork(canvasDiv, options);
+
+			$(window).on('load', function() {
+
+				$("#card-front").click(function (e){
+					e.stopPropagation();
+					toggleFlip();
+				});
+
+				$("#card-back").click(function (e){
+					e.stopPropagation();
+					toggleFlip();
+				});
+
+				$(".button-contact").click(function (e){
+					e.stopPropagation();
+					goto("https://wa.me/6283873846311?text=Assalamu'alaikum", true);
+				});
+
+				setTimeout(function(){
+					toggleFlip();
+					setTimeout(function(){
+						toggleFlip();
+					}, 1000);
+				}, 1000);
+			});
+
+			function goto(link, openTab) {
+				if (openTab) {
+					return window.open(link);
+				}
+
+				window.location = link;
+			}
+
+			function toggleFlip() {
+				const fliper = document.getElementById("fliper");
+				fliper.classList.toggle("flip-to-back");
+			}
+
+			function autoChangeShape() {
+				let randomNumber = Math.floor(Math.random() * paths.length);
+				path.attr("d", paths[randomNumber]);
+				setTimeout(function () {
+					autoChangeShape();
+				}, 350);
+			}
+
+			function changeTitleText() {
+				var text = ["Programmer", "Blogger", "Designer"];
+				var counter = 0;
+				var elem = $("#title");
+				setInterval(change, 3000);
+				function change() {
+					elem.fadeOut(function(){
+						elem.html(text[counter]);
+						counter++;
+						if(counter >= text.length) { counter = 0; }
+						elem.fadeIn();
+					});
+				}
+			}
+			
+		</script>
+    </body>
+</html>

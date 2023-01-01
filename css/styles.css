@@ -1,0 +1,190 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Mono";
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.abs_full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.575);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    left:0;
+    top:0;
+}
+
+.clip {
+    clip-path: url(#shaper);
+    -webki-clip-path: url(#shaper);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card {
+    border-radius: 15px;
+    padding: 15px;
+    background-color: rgb(234, 234, 247);
+    perspective: 1000px;
+    min-width: 250px;
+    min-height: 350px;
+}
+
+.fliper-container {
+    min-width: 250px;
+    min-height: 350px;
+    perspective: 1000px;
+}
+
+.fliper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-to-back {
+    transform: rotateY(180deg);
+}
+
+.card-back, .card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: gray;
+}
+
+.card-back {
+    background-color: cyan;
+    transform: rotateY(180deg);
+}
+
+h2 {
+    color: rgb(71, 55, 55);
+}
+
+.title {
+    color: rgb(195, 209, 209);
+}
+
+.space {
+    height: 15px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: left;
+}
+
+.info-links {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+.info-links .items {
+    width: 50%;
+} 
+
+.info-links .items .item {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid rgb(77, 73, 73);
+    color: rgb(77, 73, 73);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 14px;
+}
+
+.info-links .items .item:hover {
+    border: 1px solid gray;
+    color: gray;
+}
+
+.info-links .items .item #icon {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.social-links .items {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-links .items {
+    color: rgb(171, 179, 185);
+}
+
+.social-links .items:hover {
+    color: rgb(142, 149, 155);
+}
+
+.button-contact {
+    border-radius: 15px;
+    background-color: aliceblue;
+    color: green;
+    padding: 10px;
+    text-align: center;
+}
+
+.intro {
+    color: rgb(83, 87, 90);
+    font-size: 14px;
+}
+
+
+@font-face {
+	font-family: 'Roboto Mono';
+	src: local('Roboto Mono'), local('RobotoMono-Regular'), url('../fonts/RobotoMono-Regular.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 400;
+}
